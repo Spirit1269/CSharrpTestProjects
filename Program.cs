@@ -1,6 +1,17 @@
-﻿Console.WriteLine("Signed integral types:");
+﻿string pangram = "The quick brown fox jumps over the lazy dog";
+Console.WriteLine("");
 
-Console.WriteLine($"sbyte  : {sbyte.MinValue} to {sbyte.MaxValue}");
-Console.WriteLine($"short  : {short.MinValue} to {short.MaxValue}");
-Console.WriteLine($"int    : {int.MinValue} to {int.MaxValue}");
-Console.WriteLine($"long   : {long.MinValue} to {long.MaxValue}");
+string[] words = pangram.Split(" ");
+
+string[] reversedWords = new string[words.Length];
+int index = 0;
+
+foreach(string word in words)
+{
+    char[] charArray = word.ToCharArray();
+    Array.Reverse(charArray);
+    reversedWords[index] = new string(charArray);
+    index++;
+}
+string result = String.Join(" ", reversedWords);
+Console.WriteLine(result);
